@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\history",
+    "\\src\\app\\search-bar",
+    "\\src\\app\\video-view"
+  ],
+  "SelectedNode": "\\src\\app\\search-bar\\search-bar.component.ts",
+  "PreviewInSolutionExplorer": false
+}
