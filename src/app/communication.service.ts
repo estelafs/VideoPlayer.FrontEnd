@@ -1,12 +1,24 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { EmbedVideoService } from 'ngx-embed-video';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommunicationService {
 
-  constructor() { }
+  constructor(private embedService: EmbedVideoService,) { }
 
   url = new BehaviorSubject<String>("");
+
+  videoUrl: any;
+  urlPlaying: String = "https://www.youtube.com/watch?v=_kMqZecJtzw";
+
+  playsVideo(newUrl: String) {
+    this.urlPlaying = newUrl
+    this.videoUrl = this.embedService.embed(this.urlPlaying, {
+      attr: { width: "100%", "height": "360px" }
+    });
+  }
+
 }

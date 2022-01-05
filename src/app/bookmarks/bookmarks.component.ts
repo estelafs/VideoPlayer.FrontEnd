@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommunicationService } from '../communication.service';
 import { SaveService } from '../save.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { SaveService } from '../save.service';
 })
 export class BookmarksComponent implements OnInit {
 
-  constructor(private saveService : SaveService) { }
+  constructor(private saveService : SaveService, private communicationService : CommunicationService) { }
 
   bookmarkArray = [];
 
@@ -16,6 +17,11 @@ export class BookmarksComponent implements OnInit {
     this.saveService.newBookmark.subscribe(() => { 
       this.bookmarkArray = this.saveService.bookmarkArray;
     });
+  }
+
+  playsFromBookmarks(url: any)
+  {
+    this.communicationService.url.next(url);
   }
 
 }

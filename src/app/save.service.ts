@@ -20,11 +20,12 @@ export class SaveService {
   checkArray(url: any, array : any[]){
     return (array.indexOf(url) === -1 && url !== "") == true ? true : false;
   }
+
   addToHistory(url: any)
   {
     if(this.checkArray(url,this.urlArray)){
       this.urlArray.push(url);
-      this.newUrl.next;
+      this.newUrl.next(url);
     }
   }
 

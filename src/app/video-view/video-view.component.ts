@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { EmbedVideoService } from 'ngx-embed-video';
 import { CommunicationService } from '../communication.service';
 import { SaveService } from '../save.service';
 
@@ -10,8 +9,7 @@ import { SaveService } from '../save.service';
 })
 export class VideoViewComponent implements OnInit {
 
-  constructor(private embedService: EmbedVideoService,
-    private communicationService: CommunicationService,
+  constructor(private communicationService: CommunicationService,
     private saveService : SaveService) { }
 
   isButtonVisible : Boolean =  this.saveService.bookMarkButton.value;
@@ -20,7 +18,9 @@ export class VideoViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.communicationService.url.subscribe(v => { 
-      this.playsVideo(v); 
+      this.communicationService.playsVideo(v); 
+      this.videoUrl = this.communicationService.videoUrl;
+
       this.saveService.updateBookmarkButton(v);
 
       this.saveService.bookMarkButton.subscribe(v => {
@@ -28,13 +28,6 @@ export class VideoViewComponent implements OnInit {
        });
 
       this.saveService.addToHistory(v);
-    });
-  }
-
-  playsVideo(newUrl: String) {
-    this.url = newUrl
-    this.videoUrl = this.embedService.embed(this.url, {
-      attr: { width: "100%", "height": "360px" }
     });
   }
 
