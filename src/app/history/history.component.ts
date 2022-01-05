@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CommunicationService } from '../communication.service';
+import { SaveService } from '../save.service';
 
 @Component({
   selector: 'app-history',
@@ -8,16 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class HistoryComponent implements OnInit {
 
   urlHistory = [];
-  constructor() { }
 
-  ngOnInit(): void {
-    const localData = JSON.parse(localStorage.getItem('urlArray'));
-    console.log("achei isso history: " + localData)
+  constructor(private saveService : SaveService, private communicationService : CommunicationService) { }
 
-    if(localData == null) 
-      this.urlHistory = []
-    else 
-      this.urlHistory = localData
+  ngOnInit(): void 
+  {
+      this.saveService.newUrl.subscribe(() => { 
+        this.urlHistory = this.saveService.urlArray;
+      });
+  }
+
+  playsFromHistory(url: any)
+  {
+    this.communicationService.url.next(url);
   }
 
 }

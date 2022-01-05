@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SaveService } from '../save.service';
 
 @Component({
   selector: 'app-bookmarks',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookmarksComponent implements OnInit {
 
-  constructor() { }
+  constructor(private saveService : SaveService) { }
+
+  bookmarkArray = [];
 
   ngOnInit(): void {
+    this.saveService.newBookmark.subscribe(() => { 
+      this.bookmarkArray = this.saveService.bookmarkArray;
+    });
   }
 
 }

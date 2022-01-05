@@ -10,21 +10,22 @@ import { CommunicationService } from '../communication.service';
 export class SearchBarComponent implements OnInit {
 
   form: FormGroup;
+
   constructor(private communicationService: CommunicationService) { }
 
   ngOnInit(): void {
     this.createForm();
-    this.form.valueChanges.subscribe(v => {
-      console.log("valor mudou", v);
-      this.communicationService.url.next(v.url);
-    });
-
   }
 
   createForm() {
     this.form = new FormGroup({
       url: new FormControl()
     })
+  }
+
+  onSubmit(url :string) {
+      console.log("valor mudou", url);
+      this.communicationService.url.next(url);
   }
 
 }

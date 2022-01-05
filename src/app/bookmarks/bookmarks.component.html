@@ -1,1 +1,7 @@
-<p>bookmarks works!</p>
+<div class="container">
+    <h1 class="text-center">Bookmarks</h1>
+    <ul class="list-unstyled">   
+        <li *ngFor="let url of bookmarkArray" (click)="playsVideo(url)"> {{url}} 
+        </li>  
+    </ul> 
+</div>
