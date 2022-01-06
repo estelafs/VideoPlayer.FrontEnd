@@ -24,7 +24,6 @@ export class SearchBarComponent implements OnInit {
   }
 
   onSubmit(url :string) {
-      console.log("valor mudou", url);
       this.communicationService.url.next(url);
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CommunicationService } from '../communication.service';
 import { SaveService } from '../save.service';
 
@@ -12,9 +12,12 @@ export class BookmarksComponent implements OnInit {
   constructor(private saveService : SaveService, private communicationService : CommunicationService) { }
 
   bookmarkArray = [];
+  count : Number;
 
   ngOnInit(): void {
-    this.saveService.newBookmark.subscribe(() => { 
+    this.saveService.newBookmark.subscribe(v => { 
+      this.count = this.saveService.bookmarkCount;
+      console.log('number of bookmarks saved: ',this.count);
       this.bookmarkArray = this.saveService.bookmarkArray;
     });
   }

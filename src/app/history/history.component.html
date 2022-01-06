@@ -1,6 +1,10 @@
-<div class="container">
-    <h1 class="text-center">History</h1>
-    <ul class="list-unstyled">   
-        <li *ngFor="let url of urlHistory" (click)="playsFromHistory(url)"> {{url}} </li>  
-    </ul> 
+<link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/jumbotron-narrow/">
+
+<div id="inner">
+    <h1>History</h1>
+    <mat-selection-list #shoes [multiple]="false">
+        <mat-list-option *ngFor="let url of urlHistory" (click)="playsFromHistory(url)" [value]="url">
+          {{url}}
+        </mat-list-option>
+    </mat-selection-list>
 </div>

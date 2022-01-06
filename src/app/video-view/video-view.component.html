@@ -1,5 +1,5 @@
 <div class="frameView" [innerHtml]="videoUrl"></div>
 
-<div>
-    <button class="btn btn-outline-secondary" type="submit" *ngIf="this.isButtonVisible" (click)="addVideoToBookmarks()">and clicking here you bookmark the video</button>
-</div>
+<button class="btn btn-outline-dark" type="submit" *ngIf="this.isButtonVisible" (click)="addVideoToBookmarks()" id="inner">
+    <mat-icon>bookmark_add</mat-icon>
+</button>

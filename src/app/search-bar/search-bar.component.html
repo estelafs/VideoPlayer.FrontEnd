@@ -1,6 +1,28 @@
-<form [formGroup]="form">
-  <div class="form-group">
-    <input type="text" class="form-control" formControlName="url" id="url" placeholder="video URL goes here..." #viaInput required>
-    <button class="btn btn-outline-secondary" type="submit" (click)="onSubmit(viaInput.value)" >... and click here to watch!</button>
-  </div>
-</form>
+<link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/jumbotron-narrow/">
+
+<div class="container">
+  <form [formGroup]="form">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <input type="text" class="form-control" formControlName="url" id="url" placeholder="video URL goes here" #viaInput required>
+      </div>
+      
+      <div class="input-group-append">
+        <button mat-raised-button class="btn btn-outline-dark" type="submit" (click)="onSubmit(viaInput.value)">
+        <mat-icon>done</mat-icon>
+        </button>
+      </div>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- <form [formGroup]="form">
+<mat-form-field class="example-full-width" appearance="fill">
+  <input matInput type="text" class="form-control" formControlName="url" id="url" placeholder="video URL goes here..." #viaInput required>
+</mat-form-field>
+
+<button mat-raised-button class="btn btn-outline-dark" type="submit" (click)="onSubmit(viaInput.value)" >... and click here to watch!
+  <mat-icon>done</mat-icon>
+</form> -->

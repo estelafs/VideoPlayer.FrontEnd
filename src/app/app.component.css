@@ -1,0 +1,15 @@
+.col-lg{
+    padding: 100px 55px 100px 55px;
+}
+.history{
+    min-width: 450px;
+    background-color: tomato;
+
+}
+.bookmark{
+    min-width: 450px;
+    background-color: tomato;
+}
+.searchBar{
+    padding: 100px 550px 10px 55px;
+}
