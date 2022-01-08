@@ -1,27 +1,26 @@
-<!-- <div class="container"> -->
  
-  <div class="container">
-    <div class="row">
-      <div class="col-lg">
-        <app-history class="history"></app-history>
-        <hr>
-        <app-bookmarks class="bookmark"></app-bookmarks>
-
-      </div>
-      <div class="col-lg">
-        <app-search-bar class="searchBar" ></app-search-bar>
-        <app-video-view></app-video-view>
-      </div>
-
+<div class="container">
+  <div class="row">
+    
+    <div class="col col-xs-12 col-md-4">
+      <app-history></app-history>
+      <hr>
+      <app-bookmarks></app-bookmarks>
     </div>
+
+    <div class="col col-xs-12 col-md-8">
+      <app-search-bar></app-search-bar>
+      <app-video-view></app-video-view>
+    </div>
+
   </div>
+</div> 
   
 
 
-
-
-
-
-<!-- </div> -->
+<!-- <a routerLink="addEntry" routerLinkActive="active" class="btn btn-primary active" role="button">Add a video to the history</a>
+<a routerLink="history" routerLinkActive="active" class="btn btn-primary active" role="button">List all videos in the history</a>
+<a routerLink="bookMarks" routerLinkActive="active" class="btn btn-primary active" role="button">Add a video to the bookmarks</a>
+<a routerLink="addBookmark" routerLinkActive="active" class="btn btn-primary active" role="button">List all videos in the bookmarks</a> -->
 
 <router-outlet></router-outlet>
