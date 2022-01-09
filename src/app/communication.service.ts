@@ -12,7 +12,7 @@ export class CommunicationService {
   url = new BehaviorSubject<String>("");
 
   videoUrl: any;
-  urlPlaying: String = "https://www.youtube.com/watch?v=_kMqZecJtzw";
+  urlPlaying: String;
 
   playsVideo(newUrl: String) {
     this.urlPlaying = newUrl

@@ -1,12 +1,10 @@
-<link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/jumbotron-narrow/">
-
 <div>
-    <h1>Bookmarks</h1>
-    <mat-selection-list #shoes [multiple]="false">
-        <mat-list-option *ngFor="let url of bookmarkArray" (click)="playsFromBookmarks(url)" [value]="url">
-          {{url}}
-        </mat-list-option>
-    </mat-selection-list>
+  <h1>Bookmarks</h1>
+  <mat-selection-list #shoes [multiple]="false">
+    <mat-list-option *ngFor="let url of bookmarkArray" (click)="playsFromBookmarks(url)" [value]="url">
+      {{url}}
+    </mat-list-option>
+  </mat-selection-list>
 </div>
 
 

@@ -18,13 +18,13 @@ export class SaveService {
   bookmarkCount = 0;
 
   checkArray(url: any, array : any[]){
-    return (array.indexOf(url) === -1 && url !== "") == true ? true : false;
+    return (url !== "" && array.indexOf(url) === -1) == true ? true : false;
   }
 
-  addToHistory(url: any)
-  {
+  addToHistory(url: any){
     if(this.checkArray(url,this.urlArray)){
-      this.urlArray.push(url);
+      this.urlArray.push(url);  
+      localStorage.setItem('urlArray', JSON.stringify(this.urlArray));
       this.newUrl.next(url);
     }
   }
@@ -32,8 +32,10 @@ export class SaveService {
   addToBookmarks(url: any){
     if(this.checkArray(url,this.bookmarkArray)){
       this.bookmarkArray.push(url);
-      this.newBookmark.next;
+      localStorage.setItem('bookmarkArray', JSON.stringify(this.bookmarkArray));
+      this.newBookmark.next("");
       this.bookmarkCount++;
+      console.log('number of bookmarks saved: ',this.bookmarkCount);
       this.bookMarkButton.next(false);
     }
   }

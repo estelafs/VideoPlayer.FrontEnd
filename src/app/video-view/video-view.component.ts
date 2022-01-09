@@ -9,25 +9,24 @@ import { SaveService } from '../save.service';
 })
 export class VideoViewComponent implements OnInit {
 
-  constructor(private communicationService: CommunicationService,
-    private saveService : SaveService) { }
+  constructor(private communicationService: CommunicationService, private saveService : SaveService) { }
 
-  isButtonVisible : Boolean =  this.saveService.bookMarkButton.value;
+  isButtonVisible : Boolean =  false;
   videoUrl: any;
-  url: String = "https://www.youtube.com/watch?v=_kMqZecJtzw";
 
   ngOnInit(): void {
     this.communicationService.url.subscribe(v => { 
-      this.communicationService.playsVideo(v); 
+      if(v !== ""){
+        this.communicationService.playsVideo(v); 
+        this.saveService.addToHistory(v);
+
+        this.saveService.updateBookmarkButton(v);
+        this.saveService.bookMarkButton.subscribe(v => {
+          this.isButtonVisible = v;
+        });
+      }
+        
       this.videoUrl = this.communicationService.videoUrl;
-
-      this.saveService.updateBookmarkButton(v);
-
-      this.saveService.bookMarkButton.subscribe(v => {
-        this.isButtonVisible = v;
-       });
-
-      this.saveService.addToHistory(v);
     });
   }
 

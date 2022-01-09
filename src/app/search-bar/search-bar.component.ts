@@ -20,11 +20,11 @@ export class SearchBarComponent implements OnInit {
   createForm() {
     this.form = new FormGroup({
       url: new FormControl()
-    })
+    });
   }
 
   onSubmit(url :string) {
-      this.communicationService.url.next(url);
+    this.communicationService.url.next(url);
   }
 
 }
